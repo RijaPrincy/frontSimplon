@@ -18,7 +18,7 @@
     "reactjs-popup": "^1.3.2",
     "redux": "^4.0.4"
   },
-  "proxy": "http://localhost:8080",
+
   "scripts": {
     "dev": "react-scripts start",
     "start": "react-scripts start",
