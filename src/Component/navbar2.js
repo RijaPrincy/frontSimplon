@@ -38,20 +38,20 @@ class Particulier extends Component {
                                 <p style={{fontSize:"1.5em",color:"#d05c62"}}>Dashboard</p>
                                                    
                                                     <li class="nav-item active">
-                                                        <Link class="nav-link" exact to="/Dashboard" style={{fontSize:"1.5em"}}>Mes ateliers
+                                                        <Link class="nav-link" exact to="/Dashboard" style={{fontSize:"1.5em", color:"#f3671f"}}>Mes ateliers
                                                      <span class="sr-only">(current)</span>
                                                         </Link>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <Link class="nav-link" to="/posterAtelier"style={{fontSize:"1.5em"}}> Ajouter atelier</Link>
+                                                        <Link class="nav-link" to="/posterAtelier"style={{fontSize:"1.5em", color:"#f3671f"}}> Ajouter atelier</Link>
                                                     </li>
                                                     <li class="nav-item active">
-                                                        <Link class="nav-link" exact to="/Profil" style={{fontSize:"1.5em"}}>Profil
+                                                        <Link class="nav-link" exact to="/Profil" style={{fontSize:"1.5em", color:"#f3671f"}}>Profil
                                                      <span class="sr-only">(current)</span>
                                                         </Link>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <Link class="nav-link" to="/" style={{fontSize:"1.5em"}} onClick={
+                                                        <Link class="nav-link" to="/" style={{fontSize:"1.5em", color:"#f3671f"}} onClick={
                                                             () => {
                                                                 this.deconnecte()
                                                             }

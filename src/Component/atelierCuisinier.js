@@ -182,12 +182,7 @@ class atelierCuisinier extends Component {
                                             }}>
                                                 Activer
                                              </MDBBtn>}
-                                             {this.state.loading2==ate._id+"e"?                                <Loader 
-                                    type="Puff"
-                                    color="#00BFFF"
-                                    height="20"	
-                                    width="20"
-                                />   :""}
+                                            
                                             
                                             
                                              <MDBBtn color="success" size="md" className="waves-light " onClick={(e)=>{
@@ -198,6 +193,12 @@ class atelierCuisinier extends Component {
                                             }}>
                                                 Modifier
                                              </MDBBtn>
+                                             {this.state.loading2==ate._id+"e"?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="20"	
+                                    width="20"
+                                />   :""}
                                         </MDBCol>
                                     </MDBRow>
                                     <hr className="my-5" />
