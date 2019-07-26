@@ -29,7 +29,9 @@ class Particulier extends Component {
 
 
                         <div class="container-fluid">
+                            
                             <div class="row">
+                            
                                 <div class="col-3 px-1  position-fixed" id="sticky-sidebar" >
                                 <img src="./logo.png" alt="" width="100em" />
 
@@ -65,6 +67,8 @@ class Particulier extends Component {
                                                 </ul>
 
                                 </div>
+                                
+                                
                                 <div class="col offset-3" id="main">
                                     
                                     <nav class="navbar navbar-expand-lg  static-top" id="na2" style={{ backgroundColor: "#d05c62", fontSize: "1.5em" }} >

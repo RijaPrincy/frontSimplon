@@ -51,6 +51,7 @@ class inscription extends Component {
                 } else {
                     axios.put("https://bestoffood.herokuapp.com/updPlaceRes", { id: this.props.idAtelier })
                         .then(res2 => {
+                            this.setState({loading:false})
                             console.log("res2", res2);
                             console.log("res1", res);
                             document.getElementById("reussi").innerHTML = "Inscription réussie"
