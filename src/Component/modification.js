@@ -15,7 +15,8 @@ class modification extends Component {
             heureDebut: "",
             duree: "",
             placeDispo: "",
-            prix: ""
+            prix: "",
+            image:""
 
         }
         this.change = this.change.bind(this)
@@ -50,7 +51,7 @@ class modification extends Component {
         ev.preventDefault();
 
         const data = new FormData();
-        // data.append('file', this.uploadInput.files[0]);
+        data.append('file', this.uploadInput.files[0]);
         data.append('titre', this.state.titre);
         data.append('description', this.state.description)
         data.append('date', this.state.date)
@@ -58,8 +59,8 @@ class modification extends Component {
         data.append('duree', this.state.duree)
         data.append('placeDispo', this.state.placeDispo)
         data.append('prix', this.state.prix)
-        data.append('id_cuisinier', localStorage.getItem('id'))
-
+        data.append('image', this.state.image+"e")
+       
 
         axios.put('https://bestoffood.herokuapp.com/update/'+this.props.modification._id, data, this.setAuthToken(localStorage.getItem('token')))
             .then(result => {
@@ -106,7 +107,8 @@ class modification extends Component {
             heureDebut: this.props.modification.heureDebut,
             duree: this.props.modification.duree,
             placeDispo: this.props.modification.placeDispo,
-            prix: this.props.modification.prix
+            prix: this.props.modification.prix,
+            image: this.props.modification.image
 
         })
 
@@ -118,7 +120,8 @@ class modification extends Component {
         return (
             <div>
 
-                <div id="login">
+               
+<div id="login">
                     <h3 class="text-center text-white pt-5">Login form</h3>
                     <div class="container">
                         <div id="login-row" class="row justify-content-center align-items-center">
@@ -128,11 +131,11 @@ class modification extends Component {
                                         <h3 class="text-center text-info">Produit</h3>
                                         <div class="form-group">
                                             <label for="username" class="text-info">Titre:</label><br />
-                                            <input type="text"  required name="titre" value={this.state.titre} onChange={this.change} id="titre" class="form-control" />
+                                            <input type="text" name="titre" value={this.state.titre} onChange={this.change} id="titre" class="form-control" />
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="text-info">Description:</label><br />
-                                            <textarea type="textarea" name="description" value={this.state.description} onChange={this.change} id="Description" class="form-control" />
+                                            <textarea type="text" name="description" value={this.state.description} onChange={this.change} id="Description" class="form-control" />
                                         </div>
 
                                         <div class="form-group">
@@ -167,7 +170,7 @@ class modification extends Component {
                                             <input type="text" name="prix" value={this.state.prix} onChange={this.change} id="Prix" class="form-control" />
                                         </div>
 
-                                        {/* <div class="input-group">
+                                        <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                                             </div>
@@ -178,12 +181,12 @@ class modification extends Component {
                                                     class="custom-file-input" id="inputGroupFile01"
                                                     aria-describedby="inputGroupFileAddon01"
                                                     ref={(ref) => { this.uploadInput = ref; }} type="file" class="form-control" id="inputCity" />
-                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                {/* <label class="custom-file-label" for="inputGroupFile01">Choose file</label> */}
                                             </div>
-                                        </div> */}
+                                        </div>
+                                       
 
-
-
+                                        
 
 
 
