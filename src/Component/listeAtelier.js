@@ -3,6 +3,7 @@ import axios from 'axios'
 import { MDBContainer,MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBView, MDBBtn } from "mdbreact";
 
 import { connect } from 'react-redux'
+import Loader from 'react-loader-spinner'
 
 class listeAtelier extends Component {
 
@@ -11,7 +12,8 @@ class listeAtelier extends Component {
         super(props);
         this.state = {
             collapse: false,
-            atelier: ""
+            atelier: "",
+            loading:true
         };
         this.onClick = this.onClick.bind(this);
     }
@@ -28,7 +30,8 @@ class listeAtelier extends Component {
     getAtelier() {
         axios.get("https://bestoffood.herokuapp.com/getAtelier")
             .then(resp => {
-                this.setState({ atelier: resp.data })
+                this.setState({ atelier: resp.data,loading:false })
+
                 console.log(resp);
 
             }).catch(err => {
@@ -92,6 +95,7 @@ class listeAtelier extends Component {
                 <MDBContainer  className="text-center mt-5 pt-5">
                   
                     <MDBCard className="my-5 px-5 pb-5">
+                   
                       
                         <MDBCardBody>
                             <p> <strong>Qui nous sommes</strong> : Nous sommes un centre de formation de cuisine qui propose des ateliers à nos élèves à
@@ -109,6 +113,13 @@ class listeAtelier extends Component {
 
                             Liste de tous les ateliers ou vous pouvez vous inscrire
                              </h2>
+                             {this.state.loading?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="100"	
+                                    width="100"
+                                />   :""}
+
 
 
                             {this.state.atelier.length > 0 ? this.state.atelier.map((ate, index) => {

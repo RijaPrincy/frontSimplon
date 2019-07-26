@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { MDBContainer,MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBView, MDBBtn } from "mdbreact";
 import { connect } from 'react-redux'
+import Loader from 'react-loader-spinner'
 
 class atelierCuisinier extends Component {
     constructor(props) {
         super(props);
         this.state = {
             collapse: false,
-            atelier: ""
+            atelier: "",
+            loading:true
         };
         this.onClick = this.onClick.bind(this);
     }
@@ -28,7 +30,7 @@ class atelierCuisinier extends Component {
     getAtelier() {
         axios.get("https://bestoffood.herokuapp.com/getAteliercuis/"+localStorage.getItem("id"),this.setAuthToken(localStorage.getItem('token')))
             .then(resp => {
-                this.setState({ atelier: resp.data.resp })
+                this.setState({ atelier: resp.data.resp ,loading:false })
                 console.log(resp);
 
             }).catch(err => {
@@ -103,6 +105,12 @@ class atelierCuisinier extends Component {
                             <p className="text-center w-responsive mx-auto mb-5">
                                 Liste de tous les ateliers que vous avez créé et que vous pouvez modififier ou rendre invisible
                              </p>
+                             {this.state.loading?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="100"	
+                                    width="100"
+                                />   :""}
 
 
                             {this.state.atelier.length > 0 ? this.state.atelier.map((ate, index) => {

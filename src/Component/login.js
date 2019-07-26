@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
+import Loader from 'react-loader-spinner'
 
 class login extends Component {
 
@@ -11,7 +12,8 @@ class login extends Component {
         this.state = {
             email: '',
             passWord: "",
-            redirect: ""
+            redirect: "",
+            loading:false
 
         }
         this.change = this.change.bind(this)
@@ -67,12 +69,15 @@ class login extends Component {
         })
     }
     login = (e) => {
+        this.setState({loading:true})
         axios.post('https://bestoffood.herokuapp.com/login', e)
             .then(result => {
                 if (result.data == "not ok") {
+                    this.setState({loading:false})
                     console.log("erreur mdp");
                     document.getElementById("err").innerHTML = "Erreur mot de passe ou email"
                 } else {
+                    this.setState({loading:false})
                     console.log("result", result.data);
                     var token = result.data.token
                     localStorage.setItem('token', token)
@@ -85,6 +90,7 @@ class login extends Component {
             }
             )
             .catch(result => {
+                this.setState({loading:false})
                 console.log("erreur", result);
                 document.getElementById("err").innerHTML = "Erreur mot de passe ou email"
 
@@ -140,6 +146,12 @@ class login extends Component {
 
 
                                         </form>
+                                        {this.state.loading?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="100"	
+                                    width="100"
+                                />   :""}
                                     </div>
                                 </div>
                             </div>

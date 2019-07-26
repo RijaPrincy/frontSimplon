@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
+import Loader from 'react-loader-spinner'
 
 export default class postAtelier extends Component {
 
@@ -16,7 +17,8 @@ export default class postAtelier extends Component {
             heureDebut:"",
             duree:"",
             placeDispo:"",
-            prix:""
+            prix:"", 
+            loading:false
 
         }
         this.change = this.change.bind(this)
@@ -49,6 +51,7 @@ export default class postAtelier extends Component {
 
     handleUploadImage(ev) {
         ev.preventDefault();
+        this.setState({loading:true})
 
         const data = new FormData();
         data.append('file', this.uploadInput.files[0]);
@@ -66,9 +69,11 @@ export default class postAtelier extends Component {
             .then(result => {
                 console.log("result", result);
                 if(result.data=="not ok"){
+                    this.setState({loading:false})
                     document.getElementById("non").innerHTML="non reussi"
                     document.getElementById("reussi").innerHTML=""
                 }else{
+                    this.setState({loading:false})
                     document.getElementById("reussi").innerHTML="reussi"
                     document.getElementById("non").innerHTML=""
                 }
@@ -76,6 +81,7 @@ export default class postAtelier extends Component {
             }
             )
             .catch(result => {
+                this.setState({loading:false})
                 document.getElementById("non").innerHTML="non reussi"
                 document.getElementById("reussi").innerHTML=""
                 console.log("erreur", result);
@@ -186,6 +192,12 @@ export default class postAtelier extends Component {
                                         </div>
                                         <div id="reussi" style={{color:"#f3671f",fontSize:"2em"}}></div>
                                         <div id="non" style={{color:"#f3671f",fontSize:"2em"}}></div>
+                                        {this.state.loading?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="100"	
+                                    width="100"
+                                />   :""}
 
                                     </form>
                                 </div>

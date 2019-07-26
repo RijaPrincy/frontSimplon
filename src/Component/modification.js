@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
-
+import Loader from 'react-loader-spinner'
 class modification extends Component {
 
     constructor(props) {
@@ -16,7 +16,8 @@ class modification extends Component {
             duree: "",
             placeDispo: "",
             prix: "",
-            image:""
+            image:"", 
+            loading:false
 
         }
         this.change = this.change.bind(this)
@@ -60,10 +61,13 @@ class modification extends Component {
         data.append('placeDispo', this.state.placeDispo)
         data.append('prix', this.state.prix)
         data.append('image', this.state.image+"e")
+
+        this.setState({loading:true})
        
 
         axios.put('https://bestoffood.herokuapp.com/update/'+this.props.modification._id, data, this.setAuthToken(localStorage.getItem('token')))
             .then(result => {
+                this.setState({loading:false})
                 console.log("result modif",result);
                 document.getElementById("reussi").innerHTML="Reussi"
                 document.getElementById("non").innerHTML=""
@@ -72,6 +76,7 @@ class modification extends Component {
                
             )
             .catch(result => {
+                this.setState({loading:false})
                 document.getElementById("reussi").innerHTML=""
                 document.getElementById("non").innerHTML="Il y a une erreur"
                 console.log("erreur", result);
@@ -201,6 +206,12 @@ class modification extends Component {
                                         </div>
                                         <div id="reussi" style={{color:"#f3671f",fontSize:"2em"}}></div>
                                         <div id="non" style={{color:"#f3671f",fontSize:"2em"}}></div>
+                                        {this.state.loading?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="100"	
+                                    width="100"
+                                />   :""}
 
                                     </form>
                                 </div>

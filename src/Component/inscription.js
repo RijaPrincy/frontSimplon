@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import axios from 'axios'
 import { connect } from 'react-redux'
+import Loader from 'react-loader-spinner'
 
 class inscription extends Component {
     state = {
@@ -9,6 +10,7 @@ class inscription extends Component {
         prenom: "",
         email: "",
         tel: "",
+        loading:false
 
     };
     componentDidMount() {
@@ -35,12 +37,15 @@ class inscription extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
     inscription(r) {
+        this.setState({loading:true})
         console.log(r);
         axios.post("https://bestoffood.herokuapp.com/inscription", r)
             .then(res => {
                 if (res.data == "email deja utilisé") {
+                    this.setState({loading:false})
                     document.getElementById("erreur").innerHTML = "Email deja utilisé"
                 } else if (res.data == "mank donnee") {
+                    this.setState({loading:false})
                     document.getElementById("erreur").innerHTML = "Manque de donnée"
 
                 } else {
@@ -59,6 +64,7 @@ class inscription extends Component {
 
 
             }).catch(err => {
+                
                 console.log(err);
 
             })
@@ -185,6 +191,12 @@ class inscription extends Component {
                     </form>
                     <h2 id="erreur" style={{color:"#f3671f",fontSize:"2em"}}></h2>
                     <h2 id="reussi" style={{color:"#f3671f",fontSize:"2em"}}></h2>
+                    {this.state.loading?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="100"	
+                                    width="100"
+                                />   :""}
 
                 </MDBContainer>
                 <footer class="page-footer font-small black" style={{ backgroundColor: "#d05c62"}}>

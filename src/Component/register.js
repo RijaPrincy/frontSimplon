@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
+import Loader from 'react-loader-spinner'
 class register extends Component {
 
     constructor(props) {
@@ -13,7 +14,8 @@ class register extends Component {
             redirect: "",
             nom: "",
             Specialite: '',
-            prenom: ''
+            prenom: '',
+            loading:false
 
         }
         this.change = this.change.bind(this)
@@ -42,17 +44,20 @@ class register extends Component {
         })
     }
     login = (e) => {
+        this.setState({loading:true})
         axios.post('https://bestoffood.herokuapp.com/register', e)
             .then(result => {
                 if (result.data == "manque donne") {
+                    this.setState({loading:false})
                     console.log("erreur",result.data)
                     document.getElementById("erreur").innerHTML="Manque de donnée"
                 }else if(result.data == "Ce mail est deja utilise"){
+                    this.setState({loading:false})
                     console.log("erreur",result.data)
                     document.getElementById("erreur").innerHTML="Ce mail est déja utilisé"
                 }
                 else{
-                    
+                    this.setState({loading:false})
                     console.log("result else", result.data.e._id);
                     var token = result.data.token
                     localStorage.setItem('token', token)
@@ -65,6 +70,7 @@ class register extends Component {
             }
             )
             .catch(result => {
+                this.setState({loading:false})
                 console.log("erreur", result);
 
             });
@@ -140,7 +146,7 @@ class register extends Component {
                                         </div>
                                         <div class="form-group">
 
-                                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit"
+                                            <input type="submit" name="Enregistrer" class="btn btn-info btn-md" value="submit"
                                                 onClick={
                                                     (e) => {
                                                         e.preventDefault()
@@ -159,6 +165,12 @@ class register extends Component {
                                         </div>
                                     </form>
                                     <div id="erreur" style={{color:"#f3671f",fontSize:"2em"}}></div>
+                                    {this.state.loading?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="100"	
+                                    width="100"
+                                />   :""}
                                 </div>
                             </div>
                         </div>
