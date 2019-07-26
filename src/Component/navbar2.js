@@ -84,7 +84,7 @@ class Particulier extends Component {
                                                                 this.deconnecte()
                                                             }
                                                         }
-                                                        >Se deconnecter</Link>
+                                                        ><span style={{color:"white"}}>Se deconnecter</span></Link>
                                                     </li>
                                                     {/* <li class="nav-item">
                                             <Link class="nav-link" to="/Liste"> Liste</Link>

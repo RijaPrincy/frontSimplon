@@ -25,12 +25,12 @@ export default class Particulier extends Component {
                                 <div class="collapse navbar-collapse" style={{ color: "black !impotant" }} id="navbarResponsive">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item active" style={{ color: "black" }}>
-                                            <Link class="nav-link" exact to="/">Acceuil
+                                            <Link class="nav-link" exact to="/"><span style={{color:"white"}}>Acceuil</span>
                                     <span class="sr-only">(current)</span>
                                             </Link>
                                         </li>
                                         <li class="nav-item">
-                                            <Link class="nav-link" to="/login">Se connecter</Link>
+                                            <Link class="nav-link" to="/login"><span style={{color:"white"}}>Se connecter</span></Link>
                                         </li>
 
                                     </ul>
