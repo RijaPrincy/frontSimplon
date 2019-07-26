@@ -63,19 +63,11 @@ class listeAtelier extends Component {
 
                     <div class="carousel-inner">
                     <div class="carousel-item">
-                            <div class="carousel-caption">
-                            <h3 style={{fontSize:"1.5em",color:"black"}}>Nos activités</h3>
-                                <p style={{fontSize:"1em",color:"black"}}><strong>Nous sommes un centre de formation de cuisine .</strong>
-                                    </p>
-                            </div>
+                           
                             <img src="./test1.jpg" alt="New York" style={{ width: "100%" }} />
                         </div>
                         <div class="carousel-item active">
-                            <div class="carousel-caption">
-                            <h3 style={{fontSize:"1.5em",color:"black"}}>Nos activités</h3>
-                                <p style={{fontSize:"1em",color:"black"}}><strong>Pour financer l’achat de matériels et de
-                                    matières premières.</strong></p>
-                            </div>
+                           
                             <img src="./test2.jpg" alt="cuis1" style={{ width: "100%" }} />
                         </div>
 
@@ -83,11 +75,7 @@ class listeAtelier extends Component {
                         <div class="carousel-item">
                            
                             <img src="./test3.jpg" alt="Chicago" style={{ width: "100%" }} />
-                            <div class="carousel-caption">
-                                <h3 style={{fontSize:"1.5em",color:"black"}}>Cibles</h3>
-                                <p style={{fontSize:"1em",color:"black"}}><strong>Des personnes qui veulent apprendre à
-                                cuisiner afin de manger correctement.</strong></p>
-                            </div>
+                            
                         </div>
                         
                     </div>
@@ -106,10 +94,19 @@ class listeAtelier extends Component {
                     <MDBCard className="my-5 px-5 pb-5">
                       
                         <MDBCardBody>
-                            <h1 className="h1-responsive font-weight-bold text-center my-5" style={{color:"#d05c62 ", fontFamily:"Verdana !important"}}>
+                            <p> <strong>Qui nous sommes</strong> : Nous sommes un centre de formation de cuisine qui propose des ateliers à nos élèves à
+                            partir de 12 ans, mais aussi à des particuliers.
+                            Les cours proposés aux particuliers permettent de financer l’achat de matériels et de
+                            matières premières.</p>
+                            <p> <strong>Notre objectif</strong> : Une application web qui permette à des particuliers de s’inscrire aux ateliers
+                            que nous proposons.</p>
+                            <p> <strong>Nos cibles</strong> : Nos cibles sont les jeunes actifs entre 25 - 35 ans. Des personnes qui veulent apprendre à
+                                cuisiner afin de manger correctement.</p>
+                            <h2 className="h1-responsive font-weight-bold text-center my-5" style={{color:"#d05c62 ", fontFamily:"Verdana !important"}}>
                             Liste des ateliers
-                             </h1>
+                             </h2>
                             <h2 className="text-center w-responsive mx-auto mb-5" style={{fontFamily:"Verdana !important"}}>
+
                             Liste de tous les ateliers ou vous pouvez vous inscrire
                              </h2>
 

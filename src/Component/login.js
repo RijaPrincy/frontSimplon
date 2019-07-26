@@ -115,7 +115,7 @@ class login extends Component {
                                             <h3 class="text-center text-info">Se connecter en tant que cuisinier</h3>
                                             <div class="form-group">
                                                 <label for="username" class="text-info">Nom:</label><br />
-                                                <input type="text" name="email" value={this.state.email} onChange={this.change} id="username" class="form-control" />
+                                                <input type="email" required name="email" value={this.state.email} onChange={this.change} id="username" class="form-control" />
                                             </div>
                                             <div class="form-group">
                                                 <label for="password" class="text-info">Mot de passe:</label><br />

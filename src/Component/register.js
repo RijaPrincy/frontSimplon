@@ -128,7 +128,7 @@ class register extends Component {
                                         </div>
                                         <div class="form-group">
                                             <label for="username" class="text-info">Email:</label><br />
-                                            <input type="text" name="email" value={this.state.email} onChange={this.change} id="name" class="form-control" />
+                                            <input type="email" name="email" value={this.state.email} onChange={this.change} id="name" class="form-control" />
                                         </div>
                                         <div class="form-group">
                                             <label for="username" class="text-info">Specialite:</label><br />
