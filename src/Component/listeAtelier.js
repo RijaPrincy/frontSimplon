@@ -136,7 +136,7 @@ class listeAtelier extends Component {
                                        <img
                                            className="img-fluid"
                                            src={d}
-                                           alt=""
+                                           alt="image"
                                            width="200em"
                                        />
                                        <h2 href="#!">

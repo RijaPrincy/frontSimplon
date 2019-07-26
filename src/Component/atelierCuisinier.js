@@ -10,7 +10,8 @@ class atelierCuisinier extends Component {
         this.state = {
             collapse: false,
             atelier: "",
-            loading:true
+            loading:true,
+            loading2:""
         };
         this.onClick = this.onClick.bind(this);
     }
@@ -54,12 +55,15 @@ class atelierCuisinier extends Component {
         }
     }
     desactivation(a){
+        this.setState({loading2:a+"e"})
         axios.put("https://bestoffood.herokuapp.com/updateVisibilite",{id:a},this.setAuthToken(localStorage.getItem('token')))
         .then(resp=>{
+            this.setState({loading2:""})
             this.getAtelier()
             console.log("update visibilite",resp.data);
             
         }).catch(err=>{
+
             console.log("err visibilite",err);
             
         })
@@ -123,7 +127,7 @@ class atelierCuisinier extends Component {
                                                 <img
                                                     className="img-fluid"
                                                     src={d}
-                                                    alt=""
+                                                    alt="image"
                                                     
                                                 />
                                                
@@ -178,6 +182,12 @@ class atelierCuisinier extends Component {
                                             }}>
                                                 Activer
                                              </MDBBtn>}
+                                             {this.state.loading2==ate._id+"e"?                                <Loader 
+                                    type="Puff"
+                                    color="#00BFFF"
+                                    height="20"	
+                                    width="20"
+                                />   :""}
                                             
                                             
                                              <MDBBtn color="success" size="md" className="waves-light " onClick={(e)=>{
