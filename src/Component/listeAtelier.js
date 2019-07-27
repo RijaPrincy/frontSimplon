@@ -4,6 +4,7 @@ import { MDBContainer,MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBView, MD
 
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
+import Zoom from 'react-reveal/Zoom';
 
 class listeAtelier extends Component {
 
@@ -115,7 +116,7 @@ class listeAtelier extends Component {
                              </h2>
                              {this.state.loading?                                <Loader 
                                     type="Puff"
-                                    color="#00BFFF"
+                                    color="#f3671f"
                                     height="100"	
                                     width="100"
                                 />   :""}
@@ -128,7 +129,7 @@ class listeAtelier extends Component {
                                 var reserv=parseInt(ate.placeReserve)
 
                                 return <div>
-                                     {ate.visibilite?<div>
+                                     {ate.visibilite?<Zoom> 
                                         <MDBRow>
                                
                                <MDBCol lg="5">
@@ -181,7 +182,7 @@ class listeAtelier extends Component {
                                </MDBCol>
                            </MDBRow>
                            <hr className="my-5" />
-                                     </div>:""}
+                                     </Zoom>:""}
                                     
                                 </div>
 

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
+import Zoom from 'react-reveal/Zoom';
 class register extends Component {
 
     constructor(props) {
@@ -116,8 +117,8 @@ class register extends Component {
 
             <div class="haha">
                 {this.renderRedirect()}
-                <div id="login">
-                    <h3 class="text-center text-white pt-5">Login form</h3>
+                <Zoom id="login">
+                    <h3 class="text-center text-white pt-5"></h3>
                     <div class="container">
                         <div id="login-row" class="row justify-content-center align-items-center">
                             <div id="login-column" class="col-md-6">
@@ -146,7 +147,7 @@ class register extends Component {
                                         </div>
                                         <div class="form-group">
 
-                                            <input type="submit" name="Enregistrer" class="btn btn-info btn-md" value="submit"
+                                            <input type="submit" name="Enregistrer" class="btn btn-info btn-md" value="Enregistrer"
                                                 onClick={
                                                     (e) => {
                                                         e.preventDefault()
@@ -166,8 +167,8 @@ class register extends Component {
                                     </form>
                                     <div id="erreur" style={{color:"#f3671f",fontSize:"2em"}}></div>
                                     {this.state.loading?                                <Loader 
-                                    type="Puff"
-                                    color="#00BFFF"
+                                    type="ThreeDots"
+                                    color="#f3671f"
                                     height="100"	
                                     width="100"
                                 />   :""}
@@ -175,7 +176,7 @@ class register extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Zoom>
             </div>
 
 

@@ -3,6 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import axios from 'axios'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
+import Zoom from 'react-reveal/Zoom';
 
 class inscription extends Component {
     state = {
@@ -75,6 +76,7 @@ class inscription extends Component {
         const container = { height: 800 }
         return (
             <div>
+                <Zoom>
                 <MDBContainer style={container} className="text-center mt-5 pt-5">
                     <form
                         className="needs-validation"
@@ -186,20 +188,21 @@ class inscription extends Component {
                         </div>
                     </MDBCol> */}
                         <MDBBtn color="primary" type="submit" >
-                            S' inscrire
+                        <i class='far fa-paper-plane'></i>  S' inscrire
               </MDBBtn>
 
                     </form>
                     <h2 id="erreur" style={{color:"#f3671f",fontSize:"2em"}}></h2>
                     <h2 id="reussi" style={{color:"#f3671f",fontSize:"2em"}}></h2>
                     {this.state.loading?                                <Loader 
-                                    type="Puff"
-                                    color="#00BFFF"
+                                    type="ThreeDots"
+                                    color="#f3671f"
                                     height="100"	
                                     width="100"
                                 />   :""}
 
                 </MDBContainer>
+                </Zoom>
                 <footer class="page-footer font-small black" style={{ backgroundColor: "#d05c62"}}>
 
 

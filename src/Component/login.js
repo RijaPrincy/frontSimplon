@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import Loader from 'react-loader-spinner'
+import Zoom from 'react-reveal/Zoom';
 
 class login extends Component {
 
@@ -110,7 +111,7 @@ class login extends Component {
         return (
             <div>
                 {this.renderRedirect()}
-                <div >
+                <Zoom>
                     <div id="login" style={{height:800}}>
                         <h3 class="text-center text-white pt-5">Se connecter</h3>
                         <div class="container">
@@ -129,7 +130,7 @@ class login extends Component {
                                             </div>
                                             <div class="form-group">
 
-                                                <input type="submit" name="Se connecter" class="btn btn-info btn-md" value="submit"
+                                                <input type="submit" name="Se connecter" class="btn btn-info btn-md" value="Se connecter"
                                                     onClick={
                                                         (e) => {
                                                             e.preventDefault()
@@ -147,8 +148,8 @@ class login extends Component {
 
                                         </form>
                                         {this.state.loading?                                <Loader 
-                                    type="Puff"
-                                    color="#00BFFF"
+                                    type="ThreeDots"
+                                    color="#f3671f"
                                     height="100"	
                                     width="100"
                                 />   :""}
@@ -157,7 +158,7 @@ class login extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Zoom>
 
 
                 <footer class="page-footer font-small black" style={{ backgroundColor: "#d05c62", float: "bottom" }}>

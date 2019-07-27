@@ -4,6 +4,7 @@ import Store from './Store/store'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PointEnter from "./Component/pointEnter"
 import Register from "./Component/register"
+import  "./Component/app.css"
 
 
 
@@ -22,7 +23,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="app" >
 
         <Provider store={Store}>
           <Router>

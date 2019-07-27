@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
+import Zoom from 'react-reveal/Zoom';
 class modification extends Component {
 
     constructor(props) {
@@ -126,8 +127,8 @@ class modification extends Component {
             <div>
 
                
-<div id="login">
-                    <h3 class="text-center text-white pt-5">Login form</h3>
+<Zoom id="login">
+                    <h3 class="text-center text-white pt-5"></h3>
                     <div class="container">
                         <div id="login-row" class="row justify-content-center align-items-center">
                             <div id="login-column" class="col-md-6">
@@ -198,7 +199,7 @@ class modification extends Component {
 
                                         <div class="form-group">
 
-                                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit"
+                                            <input type="submit" name="submit" class="btn btn-info btn-md" value="modifier" style={{marginTop:"5px"}}
                                                 onClick={
                                                     this.handleUploadImage.bind(this)} />
 
@@ -207,8 +208,8 @@ class modification extends Component {
                                         <div id="reussi" style={{color:"#f3671f",fontSize:"2em"}}></div>
                                         <div id="non" style={{color:"#f3671f",fontSize:"2em"}}></div>
                                         {this.state.loading?                                <Loader 
-                                    type="Puff"
-                                    color="#00BFFF"
+                                    type="ThreeDots"
+                                    color="#f3671f"
                                     height="100"	
                                     width="100"
                                 />   :""}
@@ -218,7 +219,7 @@ class modification extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Zoom>
                 <footer class="page-footer font-small black" style={{backgroundColor:"#d05c62"}}>
 
   

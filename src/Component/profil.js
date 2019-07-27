@@ -32,16 +32,17 @@ export default class profil extends Component {
     render() {
         return (
             <div>
-                <div>Nom :{this.state.profil.nom}</div>
-                <div>Prénom :{this.state.profil.prenom}</div>
-                <div>Email :{this.state.profil.email}</div>
-                <div>Specialité :{this.state.profil.specialite}</div>
+                <center> <div><strong>Nom</strong> :{this.state.profil.nom}</div>
+                <div><strong>Prénom</strong> :{this.state.profil.prenom}</div>
+                <div><strong>Email</strong> :{this.state.profil.email}</div>
+                <div><strong>Specialité</strong> :{this.state.profil.specialite}</div>
                 {this.state.loading?                                <Loader 
-                                    type="Puff"
-                                    color="#00BFFF"
+                                    type="ThreeDots"
+                                    color="#f3671f"
                                     height="100"	
                                     width="100"
-                                />   :""}
+                                />   :""}</center>
+               
                 
             </div>
         )

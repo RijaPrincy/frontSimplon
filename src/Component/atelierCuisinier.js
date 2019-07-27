@@ -3,6 +3,7 @@ import axios from 'axios'
 import { MDBContainer,MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBView, MDBBtn } from "mdbreact";
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
+import Zoom from 'react-reveal/Zoom';
 
 class atelierCuisinier extends Component {
     constructor(props) {
@@ -111,7 +112,7 @@ class atelierCuisinier extends Component {
                              </p>
                              {this.state.loading?                                <Loader 
                                     type="Puff"
-                                    color="#00BFFF"
+                                    color="#f3671f"
                                     height="100"	
                                     width="100"
                                 />   :""}
@@ -119,7 +120,7 @@ class atelierCuisinier extends Component {
 
                             {this.state.atelier.length > 0 ? this.state.atelier.map((ate, index) => {
                                 var d= "https://bestoffood.herokuapp.com/image/"+ate.image
-                                return <div>
+                                return <Zoom>
                                     <MDBRow>
 
                                         <MDBCol lg="5">
@@ -172,14 +173,14 @@ class atelierCuisinier extends Component {
                                                 this.desactivation(ate._id)
                                                 
                                                 
-                                            }}>
+                                            }}><i class='fa fa-eye-slash'></i>
                                                 Desactiver
                                              </MDBBtn>:<MDBBtn color="primary"  size="md" className="waves-light " onClick={(e)=>{
                                                 e.preventDefault()
                                                 this.desactivation(ate._id)
                                                 
                                                 
-                                            }}>
+                                            }}><i class='fa fa-eye'></i>
                                                 Activer
                                              </MDBBtn>}
                                             
@@ -190,19 +191,19 @@ class atelierCuisinier extends Component {
                                                 this.modifier(ate)
                                                 
                                                 
-                                            }}>
+                                            }}><i class='fas fa-edit'></i>
                                                 Modifier
                                              </MDBBtn>
                                              {this.state.loading2==ate._id+"e"?                                <Loader 
-                                    type="Puff"
-                                    color="#00BFFF"
-                                    height="20"	
+                                     type="ThreeDots"
+                                     color="#f3671f"
+                                    height="50"	
                                     width="20"
                                 />   :""}
                                         </MDBCol>
                                     </MDBRow>
                                     <hr className="my-5" />
-                                </div>
+                                    </Zoom>
 
 
                             }) : ""}
